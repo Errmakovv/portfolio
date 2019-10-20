@@ -1,0 +1,2356 @@
+$cod_gray: #131313;
+$harvest-gold: #E3B873;
+$white: #ffffff;
+$futuraBookC: "FuturaBookC";
+$futuraAdemic: "Futura Ademic";
+$yesevaOne: 'Yeseva One';
+$mineShaft: #363636;
+$dustyGray: #959595;
+$brightTurquoise: #08FDD8;
+
+@mixin font($size,$family,$color) {
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+@mixin box($width,$height,$display: block) {
+    display: $display;
+    width: $width;
+    height: $height;
+}
+
+@font-face {
+    font-family: $futuraBookC;
+    font-style: normal;
+    font-weight: 400;
+    src:  url(../../assets/fonts/futurabookc.otf)
+}
+
+@font-face {
+    font-family: $futuraAdemic;
+    font-style: normal;
+    font-weight: 400;
+    src:  url(../../assets/fonts/futurademic.otf)
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+}
+
+.iframe {
+    @include box(100%,100vh);
+    transition: all 0.6s ease-in-out;
+}
+
+.buttons {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 5;
+    &__mobile {
+        @include box(200px,50px);
+        padding-top: 11px;
+        border: 2px solid $brightTurquoise;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        text-align: center;
+        @include font(24px,$futuraBookC,$brightTurquoise);
+        cursor: pointer;
+        &:hover {
+            background-color: $brightTurquoise;
+            color: $white;
+        }
+        @media screen and (max-width: 375px) {
+           display: none;
+        }
+    }
+    &__desktop {
+        @include box(200px,50px,none);
+        padding-top: 11px;
+        border: 2px solid $brightTurquoise;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        text-align: center;
+        @include font(24px,$futuraBookC,$brightTurquoise);
+        cursor: pointer;
+        &:hover {
+            background-color: $brightTurquoise;
+            color: $white;
+        }
+    }
+    
+    &__back-link {
+        text-decoration: none;
+    }
+    &__back {
+        @include box(200px,50px);
+        padding-top: 11px;
+        border: 2px solid $brightTurquoise;
+        border-radius: 5px;
+        text-align: center;
+        @include font(24px,$futuraBookC,$brightTurquoise);
+        cursor: pointer;
+        &:hover {
+            background-color: $brightTurquoise;
+            color: $white;
+        }
+    }
+}
+
+.header {
+    @include box(100%,83px);
+    background-color: $cod_gray;
+    @media screen and (max-width: 375px) {
+        height: 57px;
+    }
+    &__container {
+        @include box(1440px,100%,flex);
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 24px 84px 0 82px;
+        @media screen and (max-width: 1440px) {
+            @include box(100%,100%,flex);
+        }
+        @media screen and (max-width: 780px) {
+            justify-content: space-between;
+            width: 100%;
+            padding: 23px 18px 0 18px;
+        }
+    }
+    &__heading {
+        margin: 13px 0px 0 0;
+        @include font(14px,$futuraAdemic,$harvest-gold);
+        line-height: 10px;
+        text-transform: uppercase;
+        @media screen and (max-width: 1190px) {
+            font-size: 12px;
+        }
+        @media screen and (max-width: 375px) {
+            margin: 0;
+            font-size: 12px;
+        }
+    }
+    &__nav-menu {
+        display: flex;
+        width: 54%;
+        justify-content: space-between;
+        margin: 8px 0 0 0;
+        padding-right: 29px;
+        padding: 0 29px 0 50px;
+        list-style: none;
+        
+        @media screen and (max-width: 1190px) {
+            padding: 0;
+        }
+        @media screen and (max-width: 660px) {
+            display: none;
+        }
+        &__item{
+            &:last-child {
+                margin-right: 0px; 
+            }
+        }
+        &__link {
+            text-decoration: none;
+            @include font(14px,$futuraBookC,$white);
+            &:hover{
+                color: $harvest-gold;
+            }
+            @media screen and (max-width: 1190px) {
+                font-size: 12px;
+            }
+        }
+    }
+    &__tel {
+        height: 16px;
+        margin: 9px 0px 0 0;
+        padding-bottom: 0px;
+        @include font(14px,$futuraAdemic,$harvest-gold);
+        text-decoration: none;
+        border-bottom: 1px solid $harvest-gold;
+        @media screen and (max-width: 1190px) {
+            font-size: 12px;
+        }
+        @media screen and (max-width: 375px) {
+            margin: 0;
+            color: $white;
+            font-size: 12px;
+            border: 0;
+        }
+    }
+    &__button {
+        @include box(161px,37px);
+        background-color: $harvest-gold;
+        @include font(13px,$futuraAdemic,$white);
+        text-transform: uppercase;
+        border: 0;
+        cursor: pointer;
+        @media screen and (max-width: 1190px) {
+            display: none;
+        }
+        @media screen and (max-width: 375px) {
+            display: none;
+         }
+    }
+}
+
+.main {
+    width: 100%;
+}
+
+.banner {
+    @include box(100%,707px);
+    background-color: $cod_gray;
+    @media screen and (max-width: 375px) {
+       height: 476px;
+    }
+    &__container {
+        position: relative;
+        @include box(1440px,100%,flex);
+        margin: 0 auto;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 375px) {
+            width: 100%;
+         }
+    }
+    &__scroll {
+        position: absolute;
+        top: 658px;
+        @include box(247px,97px,flex);
+        background-color: $cod_gray;
+        padding: 36px 0 0 48px;
+        cursor: pointer;
+        &:hover {
+            .banner__scroll__text {
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+            .banner__scroll__arrow {
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+        }
+        @media screen and (max-width: 375px) {
+            display: none;
+         }
+        &__text {
+            height: 20px;
+            @include font(14px,'Yeseva One',$white);
+            margin: 6px 19px 0 0;
+            text-transform: uppercase;
+        }
+        &__arrow {
+            @include box(29px,29px);
+        }
+    }
+    &__instagram {
+        @include box(82px,707px);
+        padding: 265px 0 0 0;
+        @media screen and (max-width: 780px) {
+            display: none;
+        }
+        &__link {
+            @include box(89px,13px);
+            margin-bottom: 38px;
+            @include font(14px,$futuraAdemic,$harvest-gold);
+            text-decoration: none;
+            transform: rotate(90deg);
+        }
+        &__line {
+            margin-left:42px;
+        }
+    }
+    &__application-background {
+        @include box(94.5%,707px);
+        background-image: url(../../assets/bannerImg.png);
+        object-fit: none;
+        background-position: center;
+        @media screen and (max-width: 780px) {
+            @include box(100%,100%);
+        }
+    }
+    &__application {
+        @include box(100%,100%);
+        padding: 194px 0 0 60px;
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        @media screen and (max-width: 780px) {
+            padding: 85px 0 0 18px;
+        }
+        &__heading {
+            width: 530px;
+            margin-bottom: 19px;
+            @include font(40px,$yesevaOne,$white);
+            font-weight: 100;
+            line-height: 132.83%;
+            text-transform: uppercase;
+            @media screen and (max-width: 780px) {
+                width: 339px;
+                margin-bottom: 16px;
+                font-size: 23px;
+            }
+            & span {
+                color: $harvest-gold;
+            }
+        }
+        &__text {
+            width: 445px;
+            margin-bottom: 41px;
+            @include font(22px,$futuraBookC,$white);
+            line-height: 135.84%;
+            @media screen and (max-width: 780px) {
+                width: 310px;
+                margin-bottom: 32px;
+                font-size: 18px;
+            }
+        }
+        &__buttons {
+            @include box(434px,51px,flex);
+            justify-content: space-between;
+            @media screen and (max-width: 780px) {
+                 @include box(339px,128px);
+            }
+        }
+        &__cost-btn {
+            @include box(207px,100%);
+            background-color: rgba($color: $harvest-gold, $alpha: 0.7);
+            @include font(13px,$futuraAdemic,$white);
+            border: 0;
+            border-radius: 2px;
+            cursor: pointer;
+            &:hover {
+                background-color: $harvest-gold;
+            }
+            @media screen and (max-width: 780px) {
+                @include box(100%,51px);
+                margin-bottom: 25px;
+            }
+        }
+        &__submit-btn {
+            @include box(207px,100%);
+            @include font(13px,$futuraAdemic,$white);
+            background-color: rgba($color: #ffffff, $alpha: 0);
+            border: 1px solid $white;
+            border-radius: 2px;
+            cursor: pointer;
+            &:hover {
+                background-color: $white;
+                color: $cod_gray;
+            }
+            @media screen and (max-width: 780px) {
+                @include box(100%,51px);
+            }
+        }
+    }
+}
+
+.completed-projects {
+    width: 100%;
+    padding-bottom: 91px;
+    background-color: $cod_gray;
+    @media screen and (max-width: 375px) {
+        padding-bottom: 68px;
+    }
+    &__container {
+        width: 1440px;
+        margin: 0 auto; 
+        padding: 107px 0 0 0; 
+        @media screen and (max-width: 1440px) {
+            @include box(100%,100%);
+        }
+        @media screen and (max-width: 375px) {
+            padding-top: 36px;
+        }
+    }
+    &__nav {
+        float: right;
+        margin-bottom: 45px;
+        @include box(623px,24px);
+        margin-right: 221px;
+        @media screen and (max-width: 1300px) {
+           display: none;
+        }
+        &__list {
+            @include box(100%,100%,flex);
+            justify-content: space-between;
+            list-style-type: none;
+        }
+        &__item {
+            height: 100%;
+        }
+        &__link {
+            height: 100%;
+            @include font(14px,'Yeseva One',$white);
+            text-decoration: none;
+            text-transform: uppercase;
+            opacity: 0.3;
+            &:hover {
+                color: $harvest-gold;
+                opacity: 1;
+                border-bottom: 1px solid $harvest-gold;
+            }
+        }
+    }
+
+    &__project {
+        position: relative;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        padding-left: 102px;
+        justify-content: space-between;
+        align-items: flex-start;
+        @media screen and (max-width: 1384px) {
+            padding-left: 18px;
+        }
+        @media screen and (max-width: 1300px) {
+            justify-content: center; 
+            padding: 0 18px;
+        }
+        @media screen and (max-width: 375px) {
+            display: block;
+            height: 636px;
+            width: 100%;
+        }
+        &__description-part1 {
+            width: 441px;
+            margin-bottom: 57px;
+            @media screen and (max-width: 1300px) {
+               align-items: center;
+            }
+            @media screen and (max-width: 375px) {
+               width:100%;
+               margin: 0;
+             }
+             
+        }
+        &__headline {
+            @include box(100%,66px,flex);
+            margin-bottom: 32px;
+            @media screen and (max-width: 375px) {
+                display: block;
+               height: 50px;
+               margin-bottom: 34px;
+            }
+            &__text {
+                @include font(27px,'Yeseva One',$harvest-gold);
+                margin-right: 8px;
+                text-transform: uppercase;
+                font-weight: 100;
+                @media screen and (max-width: 1300px) {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+                @media screen and (max-width: 375px) {
+                    font-size: 22px;
+                }
+            }
+            &__img {
+                @include box(92px,1px);
+                margin-top: 46px;
+                @media screen and (max-width: 1300px) {
+                    display: none;
+                }
+            }
+        }
+        &__text {
+            @include font(18px,$futuraBookC,$white);
+            @media screen and (max-width: 1300px) {
+                text-align: center;
+            }
+            @media screen and (max-width: 375px) {
+                padding:0 13px;
+                margin-bottom: 38px;
+                font-size: 14px;
+                line-height: 23px;
+                text-align: center;
+            }
+        }
+        &__description-part2 {
+            position: absolute;
+            top: 216px;
+            width: 442px;
+            @media screen and (max-width: 1300px) {
+                position: static;
+                width: 100%;
+            }
+        }
+        &__list {
+            display: flex;
+            height: 154px;
+            width: 364px;
+            margin-bottom: 90px; 
+            flex-wrap: wrap; 
+            list-style: none;
+            @media screen and (max-width: 1300px) {
+                margin: 0 auto;
+            }
+            @media screen and (max-width: 737px) {
+                width: 302px;
+                margin: 0 auto;
+            }
+            @media screen and (max-width: 375px) {
+                margin: 0;
+            }
+        }
+        &__item {
+            
+          &:nth-child(2n+1) {
+            width: 127px;
+            margin: 0 65px 0 0;
+            @media screen and (max-width: 737px) {
+                margin: 0 35px 0 0;
+            }
+          } 
+          &:first-child {
+            margin: 0 65px 43px 0;
+            @media screen and (max-width: 737px) {
+                margin: 0 35px 34px 0;
+            }
+          } 
+        }
+        &__item-name{
+            margin-bottom: 12px;
+            @include font(18px,'Yeseva One',$harvest-gold); 
+            text-transform: uppercase;
+            font-weight: 100;
+            @media screen and (max-width: 737px) {
+                font-size: 14px;
+            }
+        }
+        &__item-text{
+            width: 95px;
+            @include font(15px,$futuraBookC,$white); 
+            @media screen and (max-width: 737px) {
+                font-size: 14px;
+            }
+        }
+        &__slider {
+            @include box(206px,14px,flex);
+            @media screen and (max-width: 1300px) {
+                display: none;
+            }
+            & img:hover{
+                -webkit-transform: scale(1.3);
+                -moz-transform: scale(1.3);
+                -o-transform: scale(1.3);
+                transform: scale(1.3);
+                cursor: pointer;
+            }
+        }
+
+        &__arrowLeft {
+            margin-right: 26px;
+        }
+        &__arrowRight {
+            margin-left: 26px;
+        }
+        &__dot {
+            @include box(10px,10px);
+            background-color: rgba($color: $white, $alpha: 0.3);
+            border-radius: 100%;
+            margin-right: 18px;
+            cursor: pointer;
+            &:hover {
+                background-color: $white;
+            }
+        }
+        &__dot-last {
+            @include box(10px,10px);
+            background-color: rgba($color: $white, $alpha: 0.3);
+            border-radius: 100%;
+            cursor: pointer;
+            &:hover {
+                background-color: $white;
+            }
+        }
+        &__photos {
+            position: relative;
+            @include box(842px,100%,flex);
+            overflow: hidden;
+            @media screen and (max-width: 1300px) {
+                margin-bottom: 39px;
+            }
+            @media screen and (max-width: 737px) {
+                width: 500px;
+                height: 344px;
+            }
+            @media screen and (max-width: 536px) {
+                width: 340px;
+                height: 241px;
+            }
+        }
+        &__arrow-left-small {
+            position: absolute;
+            top: 44%;
+            left: 13px;
+            @include box(36px,36px,none);
+            padding: 11px 0 0 12px;
+            background-color: rgba($color: $harvest-gold, $alpha: 0.7);
+            cursor: pointer;
+            border-radius: 100%;
+            &:hover {
+                background-color: $harvest-gold;
+            }
+            @media screen and (max-width: 737px) {
+                display: block;
+            }
+        }
+        &__arrow-right-small {
+            position: absolute;
+            top: 44%;
+            right: 45px;
+            @include box(56px,56px);
+            padding: 18px 0 0 22px;
+            background-color: rgba($color: $harvest-gold, $alpha: 0.7);
+            cursor: pointer;
+            border-radius: 100%;
+            &:hover {
+                background-color: $harvest-gold;
+            }
+            @media screen and (max-width: 1236px) {
+                display: block;
+            }
+            @media screen and (max-width: 737px) {
+                @include box(36px,36px);
+                right: 13px;
+                padding: 11px 0 0 15px;
+            }
+            & img {
+                width: 14px;
+                height: 21px;
+                @media screen and (max-width: 737px) {
+                    width: 8px;
+                    height: 14px;
+                }
+            }
+        }
+        &__photo1 {
+            width: 679px;
+            margin-right: 21px;
+            object-fit: cover;
+            object-position: -14px 0px;
+            @media screen and (max-width: 737px) {
+               display: none;
+            }
+        }
+        &__photo2 {
+            object-position: -133px 0px;
+            @media screen and (max-width: 737px) {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 0px;
+            }
+        }
+    }
+}
+.online-control {
+    display: block;
+    width: 100%;
+    background: linear-gradient($cod_gray 324px/973px*100%,$white 324px/973px*100%);
+    //background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 324px/973px*100%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 96%, rgba(255,255,255,1) 100%);
+    @media screen and (max-width: 817px) {
+        padding: 0 18px;
+        background: linear-gradient($cod_gray 827px/852px*100%,$white 827px/852px*100%);
+    }
+    &__container {
+        width: 1440px;
+        margin: 0 auto;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+    }
+    &__heading {
+     @include font(20px,$yesevaOne,$white); 
+     margin-bottom: 12px;
+     text-align: center;
+     text-transform: uppercase;
+     font-weight: 100;
+     @media screen and (max-width: 375px) {
+         font-size: 22px;
+         margin-bottom: 18px;
+     }
+    }
+    &__images {
+        width: 120px;
+        margin: 0 auto 32px auto;
+    }
+    &__line {
+        margin-bottom: 12px;
+    }
+    &__camera {
+        margin: 0 7px;
+    }
+    &__videoblock {
+         @include box(817px,434px);
+         margin: 0 auto 62px auto;
+         @media screen and (max-width: 817px) {
+            width: 500px;
+            height: 266px;
+        }
+         @media screen and (max-width: 536px) {
+            width: 340px;
+            height: 207px;
+            margin-bottom: 28px;
+        }
+    }
+    
+    &__top-line {
+        display: block;
+        margin: 0 auto 33px auto;
+        @media screen and (max-width: 536px) {
+            margin: 0 auto 21px auto;
+        }
+    }
+    &__top-text-block {
+        width: 681px;
+        margin: 0 auto;
+        @media screen and (max-width: 817px) {
+           width: 340px;
+        }
+    }
+    &__top-text {
+        @include font(20px,$futuraBookC,$mineShaft);
+        margin-bottom: 105px;
+        text-align: center;
+        line-height: 34px;
+        @media screen and (max-width: 817px) {
+            @include font(14px,$futuraBookC,$white);
+            padding: 0;
+            line-height: 24px;
+            margin-bottom: 35px;
+        }
+    }
+    &__personal-data-form {
+        @include box(769px,102px,flex);
+        margin: 0 auto;
+        @media screen and (max-width: 817px) {
+            @include box(340px,295px);
+            margin: 0 auto;
+        }
+    }
+    &__personal-data {
+        display: flex;
+        flex-wrap: wrap;
+        width: 520px;
+        margin-right: 48px;
+        @media screen and (max-width: 817px) {
+            display: block;
+            width: 100%;
+            margin: 0 0 44px 0;
+        }
+    }
+    &__input-block {
+        @include box(231px,48px,flex);
+        margin-right: 54px;
+        border-bottom: 1px solid rgba($color:$mineShaft, $alpha: 0.3);
+        @media screen and (max-width: 817px) {
+            width: 100%;
+            margin: 0 0 54px 0;
+            border-bottom: 1px solid rgba($color:$white, $alpha: 1);
+        }
+        &:nth-child(2) {
+            margin: 0 0 34px 0;
+            @media screen and (max-width: 817px) {
+                margin: 0 0 26px 0;
+            }
+        }
+        & p {
+            display: block;
+            @include font(18px,$futuraBookC,$mineShaft);
+            margin-right: 3px;
+            @media screen and (max-width: 817px) {
+                color: $white;
+                font-weight: 100;
+            }
+        }
+        & span {
+            @include font(15px,$futuraBookC,rgba($color:$mineShaft, $alpha: 0.5));
+            @media screen and (max-width: 817px) {
+                color: rgba($color:$white, $alpha: 0.5);
+            }
+        }
+        &__input {
+            @include box(87px,22px);
+            margin-top: 21px;
+            padding-left: 5px;
+            border: 0;
+            @media screen and (max-width: 817px) {
+                @include box(194px,24px);
+                background-color: $cod_gray;
+                color: $white;
+            }
+        }
+    }
+    &__checkbox {
+        display: flex;
+        margin-left: 235px;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: 817px) {
+            width: 285px;
+            margin: 0;
+        }
+        #agree1 {
+            display: none;
+        }
+        &-agree-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 18px;
+        height: 18px;
+        border: 1px solid $harvest-gold;
+        cursor: pointer;
+            svg {
+                color: $cod_gray;
+            }
+        }
+        #agree1:checked ~ &-agree-box {
+            background-color: $harvest-gold;
+        }
+        &-agree {
+        cursor: pointer;
+            p {
+                padding-left: 8px;
+                @include font(16px,$futuraBookC,$cod_gray);
+                font-size: 16px;
+                line-height: 22px;
+                @media screen and (max-width: 817px) {
+                    color: $white;
+                }
+            }
+        }
+    }
+    
+    &__personal-data-button {
+        @include box(200px,51px);
+        background-color: $harvest-gold;
+        @include font(15px,$futuraAdemic,$white);
+        border: 0;
+        border-radius: 2px;
+        cursor: pointer;
+        @media screen and (max-width: 817px) {
+            width: 340px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.types-of-repair {
+    @include box(100%,978px);
+    @media screen and (max-width: 1080px) {
+        height: 1794px;
+    }
+    &__container {
+        @include box(1440px,100%); 
+        margin: 0 auto;
+        padding-top: 148px;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 1080px) {
+            @include box(100%,100%);
+            padding-top: 83px;
+        }
+    }
+    &__heading {
+        @include font(20px,$yesevaOne,$cod_gray); 
+        margin-bottom: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 100;
+        @media screen and (max-width: 375px) {
+           font-size: 22px;
+        }
+    }
+    &__images {
+        width: 114px;
+        margin: 0 auto 32px auto;
+    }
+    &__line {
+        margin-bottom: 12px;
+    }
+    &__tools {
+        margin: 0 7px;
+    }
+    &__types {
+        @include box(1236px,608px,flex); 
+        margin: 0 auto;
+        justify-content: space-between;
+        @media screen and (max-width: 1236px) {
+            width: 1050px;
+        }
+        @media screen and (max-width: 1080px) {
+            @include box(340px,1570px);
+        }
+    }
+    &__type {
+        position: relative;
+        @include box(392px,100%); 
+        @media screen and (max-width: 1236px) {
+            @include box(340px,484px);
+            margin-bottom: 58px;
+        }
+        &__image {
+            @media screen and (max-width: 1236px) {
+                @include box(100%,365px); 
+            }
+        }
+        &__description {
+            position: absolute;
+            top: 294px;
+            left: 31px;
+            @include box(330px,286px);
+            padding: 25px 0 0 34px;
+            background-color: $white;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+            @media screen and (max-width: 1236px) {
+                @include box(270px,241px); 
+                top: 222px;
+                left: 0px;
+                padding: 18px 0 0 32px;
+            }
+        }
+        &__name {
+            @include font(18px,$yesevaOne,$mineShaft); 
+            margin-bottom: 17px;
+            @media screen and (max-width: 1236px) {
+                @include font(15px,$yesevaOne,$mineShaft); 
+                margin-bottom: 12px;
+            }
+        }
+        &__list {
+            padding-left: 18px;
+        }
+        &__item {
+            @include font(15px,$futuraBookC,$dustyGray);
+            margin-bottom: 5px;
+            @media screen and (max-width: 1236px) {
+                font-size: 15px;
+                font-weight: 100;
+            }
+            &:last-child{
+                margin-bottom: 0;  
+            }
+        }
+        &__price-container {
+            position: absolute;
+            top: 554px;
+            left: 31px;
+            @include box(228px,54px);
+            padding: 17px 0 0 21px;
+            background-color: $harvest-gold;
+            box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.3);
+            @media screen and (max-width: 1236px) {
+                @include box(190px,40px);
+                padding: 11px 0 0 18px;
+                top: 444px;
+                left: 0px;
+            }
+        }
+        &__price {
+            @include font(18px,$yesevaOne,$white);
+            text-transform: uppercase;
+            @media screen and (max-width: 1236px) {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+.measure {
+    width: 100%;
+    @include box(100%,933px);
+    @media screen and (max-width: 1236px) {
+        height: 800px;
+    }
+    @media screen and (max-width: 817px) {
+        height: 708px;
+    }
+    @media screen and (max-width: 536px) {
+        display: none;
+    }
+    &__container {
+        @include box(1440px,100%,flex);
+        justify-content: space-between;
+        margin: 0 auto;
+        padding-right: 99px;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 1384px) {
+            padding: 0;
+        }
+        @media screen and (max-width: 1236px) {
+            justify-content: center;
+        }
+    }
+    &__description {
+        margin-left: -157px;
+        @include box(930px,637px);
+        background-image: url(../../assets/house.png);
+        background-repeat: no-repeat;
+        object-fit: none;
+        background-position: -148px -47px;
+        @media screen and (max-width: 1236px) {
+            display: none;
+        }
+        &__circle {
+            position: relative;
+            @include box(636px,636px);
+            border-radius: 100%;
+            border: 3px solid $harvest-gold;
+        }
+        &__list {
+            position: absolute;
+            left: 503px;
+            top: 62px;
+            width: 442px;
+            list-style: none;
+            & li {
+                display: flex;
+            }
+        }
+        &__item1 {
+            margin-left: 4px;
+            margin-bottom: 70px;
+        }
+        &__item2 {
+            margin-bottom: 89px;
+            margin-left: 84px;
+        }
+        &__item3 {
+            margin-bottom: 73px;
+            margin-left: 87px;
+        }
+        &__item4 {
+            margin-left: 15px;
+        }
+        &__circle-mini-bg {
+            margin-right: 5px;
+            padding: 12px;
+            border-radius: 100%;
+            background-color: $white;
+        }
+        &__circle-mini {
+            @include box(42px,42px);
+            padding-top: 10px;
+            background-color: $harvest-gold;
+            border-radius: 100%;
+
+        }
+        &__number {
+            @include font(18px,$yesevaOne,$white);
+            text-align: center;
+        }
+        &__text {
+            margin-top: 17px;
+            @include font(18px,$futuraBookC,$mineShaft);
+        }
+        &__text-big {
+            margin-top: 13px;
+            @include font(18px,$futuraBookC,$mineShaft);
+        }
+    }
+    &__request-block {
+        height: 620px;
+        margin: 50px 0 0 0;
+    }
+    &__request {
+        @include box(506px,509px);
+        margin: 0 0 37px 0;
+        padding-top: 28px;
+        background-color: $cod_gray;
+        @media screen and (max-width: 1384px) {
+            width: 440px;
+        }
+        &__heading {
+            margin-bottom: 39px;
+            padding: 0px 135px;
+            text-align: center;
+            @include font(20px,$futuraBookC,$white);
+            font-weight: 100;
+        }
+        &__personal-data-form {
+            @include box(427px,102px);
+            margin: 0 auto;
+        }
+        &__personal-data {
+            margin-left: 18px;
+            margin-bottom: 16px;
+        }
+        &__input-block {
+            @include box(100%,48px,flex);
+            margin-bottom: 48px;
+            border-bottom: 1px solid rgba($color:$white, $alpha: 0.15);
+            &:nth-child(3) {
+                margin: 0;
+            }
+            & p {
+                @include font(18px,$futuraBookC,$white);
+                margin-right: 3px;
+            }
+            & span {
+                @include font(15px,$futuraBookC,rgba($color:$white, $alpha: 0.5));
+            }
+            &__input {
+                @include box(263px,22px);
+                margin-top: 21px;
+                padding-left: 5px;
+                background-color: $cod_gray;
+                color: $white;
+                border: 0;
+            }
+        }
+        &__checkbox {
+            display: flex;
+            margin-left: 18px;
+            margin-bottom: 39px;
+            width: 285px;
+            justify-content: center;
+            align-items: center;
+            #agree2 {
+                display: none;
+            }
+            &-agree-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 18px;
+            height: 18px;
+            border: 1px solid $harvest-gold;
+            cursor: pointer;
+                svg {
+                    color: $cod_gray;
+                }
+            }
+            #agree2:checked ~ &-agree-box {
+                background-color: $harvest-gold;
+            }
+            &-agree {
+            cursor: pointer;
+                p {
+                    padding-left: 8px;
+                    @include font(16px,$futuraBookC,$white);
+                    font-size: 16px;
+                    line-height: 22px;
+                    @media screen and (max-width: 817px) {
+                    }
+                }
+            }
+        }
+        
+        &__personal-data-button {
+            float: right;
+            @include box(213px,51px);
+            background-color: $harvest-gold;
+            @include font(15px,$futuraAdemic,$white);
+            border: 0;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+    }
+    &__stock {
+        @include box(100%,72px,flex);
+        padding-left: 33px;
+        &__img-block {
+            @include box(72px,72px);
+            margin-right: 25px;
+            padding: 15px 0 0 17px ;
+            background-color: $harvest-gold;
+            border-radius: 100%;
+        }
+        &__text {
+            @include font(20px,$futuraAdemic,$harvest-gold);
+            margin-top: 12px;
+        }
+    }
+}
+
+.styles {
+    width: 100%;
+    background-color: $cod_gray;
+    @media screen and (max-width: 1080px) {
+        background: linear-gradient($white 211px/384px*100%,$cod_gray 211px/384px*100%);
+    }
+    &__container-bg{
+        @include box(1440px, 864px);
+        margin: 0 auto;
+        background-image: url(../../assets/stylebg.png);
+        
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 1080px) {
+            background-image: none;
+            height: 623px;
+        }
+        @media screen and (max-width: 817px) {
+            height: 490px;
+        }
+        @media screen and (max-width: 660px) {
+            height: 386px;
+        }
+    }
+    &__container {
+        @include box(100%, 100%,flex);
+        justify-content: space-between;
+        padding: 0 100px;
+        background-color: rgba($color: $cod_gray, $alpha: 0.8);
+        @media screen and (max-width: 1384px) {
+            padding: 0 40px;
+        }
+        @media screen and (max-width: 1080px) {
+           display: block;
+           padding: 0 18px;
+           background-color: rgba($color:$white, $alpha: 0);
+        }
+    }
+    &__names {
+        width: 299px;
+        margin: 137px 0 0 0;
+        @media screen and (max-width: 1080px) {
+            width: 100%;
+            margin: 0;
+        }
+        &__heading {
+            margin-bottom: 45px;
+            @include font(27px,$yesevaOne,$harvest-gold);
+            font-weight: 100;
+            text-transform: uppercase;
+            @media screen and (max-width: 1080px) {
+                padding: 0 18px;
+                text-align: center;
+            }
+            @media screen and (max-width: 817px) {
+                font-size: 22px;
+            }
+        }
+        &__list {
+            width: 100%;
+            list-style: none;
+            @media screen and (max-width: 1080px) {
+                display: none;
+            }
+        }
+        &__item {
+            margin-bottom: 28px;
+            cursor: pointer;  
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+        &__name {
+            @include font(20px,$futuraBookC,$white);
+            padding-bottom: 3px;
+            &:hover {
+                color: $harvest-gold;
+                border-bottom: 1px solid $harvest-gold;
+            }
+        }
+    }
+    &__photo {
+        position: relative;
+        width: 751px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @media screen and (max-width: 1236px) {
+            width: 650px;
+            height: 462px; 
+            margin-top: 240px;
+        }
+        @media screen and (max-width: 1080px) {
+            margin: 0 auto;
+        }
+        @media screen and (max-width: 817px) {
+            width: 500px;
+            height: 355px;
+        }
+        @media screen and (max-width: 660px) {
+            width: 340px;
+            height: 242px;
+        }
+        &__arrow-left {
+            position: absolute;
+            @include box(36px,36px,none);
+            padding: 11px 0 0 12px;
+            background-color: rgba($color: $harvest-gold, $alpha: 0.7);
+            cursor: pointer;
+            border-radius: 100%;
+            &:hover {
+                background-color: $harvest-gold;
+            }
+            @media screen and (max-width: 1236px) {
+                display: block;
+                top: 50%;
+                left: 13px;
+            }
+        }
+        &__arrow-right {
+            position: absolute;
+            @include box(36px,36px,none);
+            padding: 11px 0 0 15px;
+            background-color: rgba($color: $harvest-gold, $alpha: 0.7);
+            cursor: pointer;
+            border-radius: 100%;
+            &:hover {
+                background-color: $harvest-gold;
+            }
+            @media screen and (max-width: 1236px) {
+                display: block;
+                top: 50%;
+                right: 13px;
+            }
+        }
+        &__photo1 {
+            width: 354px;
+            height: 557px;
+            margin: -41px 43px 40px 0;
+            object-fit: cover;
+            @media screen and (max-width: 1236px) {
+                width: 100%;
+                height: 100%; 
+                margin: 0;
+            }
+        }
+        &__photo2 {
+            width: 354px;
+            height: 275px;
+            margin: -113px 0 36px 0;
+            @media screen and (max-width: 1236px) {
+                display: none;
+            }
+        }
+        &__photo3 {
+            width: 354px;
+            height: 349px;
+            @media screen and (max-width: 1236px) {
+                display: none;
+            }
+        } 
+        &__photo4 {
+            width: 354px;
+            height: 625px;
+            margin: -358px 0 0 0;
+            @media screen and (max-width: 1236px) {
+               display: none;
+            }
+        } 
+    }
+
+}
+.design-project {
+    @include box(100%,1048px);
+    background: linear-gradient($white 620px/1041px*100%,$cod_gray 620px/1041px*100%);
+    @media screen and (max-width: 1236px) {
+        background: $cod_gray;
+        height: 1000px;
+    }
+    @media screen and (max-width: 1080px) {
+        height: 1814px;
+    }
+    &__container {
+        @include box(1440px,100%); 
+        margin: 0 auto;
+        padding-top: 153px;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 1080px) {
+            padding: 0;
+        }
+    }
+    &__heading {
+        @include font(20px,$yesevaOne,$cod_gray); 
+        margin-bottom: 14px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 100;
+        @media screen and (max-width: 1236px) {
+            color: $white;
+        }
+        @media screen and (max-width: 375px) {
+           font-size: 22px;
+        }
+    }
+    &__images {
+        width: 114px;
+        margin: 0 auto 24px auto;
+    }
+    &__line {
+        margin-bottom: 12px;
+    }
+    &__pencil {
+        margin: 0 7px;
+    }
+    &__text {
+        margin-bottom: 52px;
+        @include font(20px,$futuraBookC,$mineShaft); 
+        text-align: center;
+        @media screen and (max-width: 1236px) {
+            color: $white;
+            padding: 0 44px;
+        }
+        @media screen and (max-width: 375px) {
+            font-size: 15px;
+        }
+    }
+    &__types {
+        @include box(1236px,707px,flex); 
+        margin: 0 auto;
+        justify-content: space-between;
+        @media screen and (max-width: 1236px) {
+            width: 1050px;
+            height: 656px;
+        }
+        @media screen and (max-width: 1080px) {
+            @include box(340px,1570px);
+        }
+    }
+    &__type {
+        position: relative;
+        @include box(392px,100%); 
+        @media screen and (max-width: 1236px) {
+            width: 340px;
+            &:first-child {
+                height: 416px;
+            }
+            &:nth-child(2) {
+                height: 484px;
+            }
+            &:last-child {
+                height: 484px;
+            }
+        }
+        @media screen and (max-width: 1080px) {
+            margin-bottom: 59px;
+            &:last-child {
+                margin: 0;
+            }
+        }
+        &__image3 {
+            @include box(392px,421px);
+            background: linear-gradient(to right, rgba($color: $cod_gray, $alpha: 0.3), rgba($color: $cod_gray, $alpha: 0.3)), url(../../assets/room.png);
+            @media screen and (max-width: 1236px) {
+                @include box(100%,365px); 
+                background:  url(../../assets/typeOfRepair2.png);
+            }
+        }
+        &__image2 {
+            @include box(392px,421px);
+            background: linear-gradient(to right, rgba($color: $cod_gray, $alpha: 0.3), rgba($color: $cod_gray, $alpha: 0.3)), url(../../assets/typeOfRepair3.png);
+            @media screen and (max-width: 1236px) {
+                @include box(100%,365px); 
+                background:  url(../../assets/typeOfRepair3.png);
+            }
+        }
+        &__image1 {
+            @include box(392px,421px);
+            background: linear-gradient(to right, rgba($color: $cod_gray, $alpha: 0.3), rgba($color: $cod_gray, $alpha: 0.3)), url(../../assets/typeOfRepair1.png);
+            @media screen and (max-width: 1236px) {
+                @include box(100%,365px); 
+                background:  url(../../assets/typeOfRepair1.png);
+            }
+        }
+        &__description {
+            position: absolute;
+            top: 294px;
+            left: 31px;
+            width: 330px;
+            padding: 25px 0 62px 34px;
+            background-color: $white;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.03);
+            @media screen and (max-width: 1236px) {
+                top: 222px;
+                left: 0px;
+                width: 270px;
+                padding: 18px 0 49px 32px;
+            }
+        }
+        &__name {
+            @include font(18px,$yesevaOne,$mineShaft); 
+            margin-bottom: 14px;
+            font-weight: 100;
+            @media screen and (max-width: 1236px) {
+                @include font(15px,$yesevaOne,$mineShaft); 
+                margin-bottom: 12px;
+            }
+        }
+        &__list {
+            padding-left: 18px;
+        }
+        &__item {
+            @include font(15px,$futuraBookC,$dustyGray);
+            margin-bottom: 7px;
+            @media screen and (max-width: 1236px) {
+                font-size: 13px;
+                font-weight: 100;
+            }
+            @media screen and (max-width: 1080px) {
+                &:nth-child(7){
+                    margin: 0;
+                }
+            }
+            &:last-child{
+                margin-bottom: 0;  
+            }
+        }
+        &__item-reserve {
+            @include font(15px,$futuraBookC,$dustyGray);
+            margin-bottom: 7px;
+            @media screen and (max-width: 1236px) {
+                font-size: 13px;
+                font-weight: 100;
+            }
+            @media screen and (max-width: 1080px) {
+                display: none;
+            }
+            &:last-child{
+                margin-bottom: 0;  
+            }
+        }
+        &__price-container1 {
+            position: absolute;
+            top: 479px;
+            left: 31px;
+            @include box(228px,54px);
+            padding: 17px 0 0 21px;
+            background-color: $harvest-gold;
+            box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.1);
+            @media screen and (max-width: 1236px) {
+                top: 377px;
+                @include box(190px,40px);
+                padding: 11px 0 0 36px;
+                left: 0px;
+            }
+        }
+        &__price-container2 {
+            position: absolute;
+            top: 555px;
+            left: 31px;
+            @include box(228px,54px);
+            padding: 17px 0 0 21px;
+            background-color: $harvest-gold;
+            box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.1);
+            @media screen and (max-width: 1236px) {
+                top: 444px;
+                @include box(190px,40px);
+                padding: 11px 0 0 36px;
+                left: 0px;
+            }
+        }
+        &__price-container3 {
+            position: absolute;
+            top: 674px;
+            left: 31px;
+            @include box(228px,54px);
+            padding: 17px 0 0 21px;
+            background-color: $harvest-gold;
+            box-shadow: 5px 5px 10px rgba(227, 184, 115, 0.1);
+            @media screen and (max-width: 1236px) {
+                top: 552px;
+                @include box(190px,40px);
+                padding: 11px 0 0 36px;
+                left: 0px;
+            }
+            @media screen and (max-width: 1080px) {
+                top: 444px;
+            }
+        }
+        &__price {
+            @include font(18px,$yesevaOne,$white);
+            text-transform: uppercase;
+            @media screen and (max-width: 1236px) {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+.steps-to-goal{
+    width: 100%;
+    background-color: $cod_gray;
+    @media screen and (max-width: 660px) {
+       display: none;
+    }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        height: 692px;
+        width:1440px;
+        margin: 0 auto;
+        padding: 0 105px 0 96px;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 1384px) {
+            padding: 0 30px 0 30px;
+        }
+        @media screen and (max-width: 1236px) {
+            justify-content: center;
+            padding: 0;
+        }
+    }
+    &__description{
+        width: 337px;
+    }
+    &__topic {
+        margin-bottom: 18px;
+        @include font(15px,$futuraBookC,$white);
+        text-transform: uppercase;
+    }
+    &__heading {
+        display: flex;
+        width: 100%;
+        margin-bottom: 83px;
+        &__text {
+            width: 168px;
+            margin-right: 44px;
+            @include font(27px,$yesevaOne,$harvest-gold);
+            text-transform: uppercase;
+            line-height: 37px;
+            font-weight: 100;
+        }
+        &__img {
+            @include box(92px,1px);
+            margin-top: 53px;
+        }
+    }
+    &__paragraph {
+        width: 100%;
+        margin-bottom: 95px;
+        &__number {
+            margin-bottom: 22px;
+            @include font(18px,$yesevaOne,$white); 
+            font-weight: 100;
+        } 
+        &__name {
+            margin-bottom: 16px;
+            @include font(15px,$yesevaOne,$harvest-gold); 
+            text-transform: uppercase;
+            font-weight: 100;
+            line-height: 23px;
+        }
+        &__text {
+            @include font(15px,$futuraBookC,$white); 
+            line-height: 25px;
+        }
+    }
+    &__slider {
+        display: flex;
+        & img:hover{
+            -webkit-transform: scale(1.3);
+            -moz-transform: scale(1.3);
+            -o-transform: scale(1.3);
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+    }
+
+    &__arrowLeft {
+        margin-right: 26px;
+    }
+    &__arrowRight {
+        margin-left: 26px;
+    }
+    &__dot {
+        @include box(10px,10px);
+        margin-right: 11px; 
+        background-color: rgba($color: $white, $alpha: 0.3);
+        border-radius: 100%;
+        cursor: pointer;
+        &:hover {
+            background-color: $white;
+        }
+    }
+    &__dot-last {
+        @include box(10px,10px);
+        background-color: rgba($color: $white, $alpha: 0.3);
+        border-radius: 100%;
+        cursor: pointer;
+        &:hover {
+            background-color: $white;
+        }
+    }
+    &__steps {
+        width: 765px;
+        margin-top: 87px;
+        @media screen and (max-width: 1236px) {
+            display: none;
+        }
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 25px;
+            list-style: none;
+        }
+        &__step {
+            margin-bottom: 36px;
+            cursor: pointer;
+            &:nth-child(3n+1) {
+                width: 128px;
+                margin-right: 200px;
+            }
+            &:nth-child(3n+2) {
+                width: 136px;
+                margin-right: 200px;
+            }
+            &:nth-child(3n+3) {
+                width: 100px;
+                margin-right: 0px;
+            }
+            &:hover {
+                .steps-to-goal__steps__number{
+                    color: $white;
+                    border-bottom: 1px solid rgba($color: $harvest-gold, $alpha: 1);
+                }
+                .steps-to-goal__steps__text{
+                    color: $white;
+                }
+            }
+        }
+        &__number{
+            width: 19px;
+            margin-bottom: 10px;
+            padding-bottom: 2px;
+            @include font(15px,$yesevaOne, rgba($color: $white, $alpha: 0.3));
+            font-weight: 100;
+            border-bottom: 1px solid rgba($color: $white, $alpha: 0.3);
+        }
+        &__text {
+            @include font(15px,$futuraBookC, rgba($color: $white, $alpha: 0.3));
+        }
+        &__img {
+            @include box(765px,376px);
+        }
+    }
+}
+
+.our-team {
+    width: 100%;
+    background: linear-gradient($cod_gray 393px/833px*100%,$white 393px/833px*100%);
+    @media screen and (max-width: 1236px) {
+        background: $cod_gray;
+    }
+    &__container {
+        @include box(1440px,100%); 
+        margin: 0 auto;
+        padding: 95px 0 102px 0;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 1236px) {
+            padding: 0;
+        }
+    }
+    &__heading {
+        @include font(20px,$yesevaOne,$white); 
+        margin-bottom: 14px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 100;
+        @media screen and (max-width: 1236px) {
+            color: $white;
+        }
+        @media screen and (max-width: 375px) {
+           font-size: 22px;
+        }
+    }
+    &__images {
+        width: 115px;
+        margin: 0 auto 24px auto;
+    }
+    &__top-line {
+        margin-bottom: 12px;
+    }
+    &__team {
+        margin: 0 7px;
+    }
+    &__top-text {
+        margin-bottom: 86px;
+        @include font(20px,$futuraBookC,$white); 
+        text-align: center;
+        @media screen and (max-width: 1236px) {
+            font-size: 15px;
+        }
+    }
+    &__members {
+        display: flex;
+        justify-content: space-between;
+        width: 1028px;
+        margin: 0 auto 53px auto;
+        @media screen and (max-width: 1236px) {
+            display: block;
+            width: 304px;
+            margin: 0 auto;
+        } 
+        @media screen and (max-width: 375px) {
+            margin: 0 0 0 53px;
+        }
+    }
+    &__member {
+        position: relative;
+        width: 273px;
+        @media screen and (max-width: 1236px) {
+            width: 100%;
+            margin-bottom: 108px;
+            &:last-child {
+                margin-bottom: 0;
+            } 
+        } 
+        &__icon {
+            position: absolute;
+            top: -35px;
+            left: -35px;
+            padding-top: 13px;
+            @include box(70px,70px); 
+            background-color: $harvest-gold;
+            box-shadow: 0px 5px 20px rgba(227, 184, 115, 0.5);
+            &__img {
+                @include box(44px,44px); 
+                margin: 0 auto;
+            }
+        }
+        &__photo1 {
+            @include box(100%,358px); 
+            background-image: url(../../assets/dmitriy.png);
+        }
+        &__photo2 {
+            @include box(100%,358px); 
+            background-image: url(../../assets/larisa.png);
+            @media screen and (max-width: 1236px) {
+                background-repeat: no-repeat;
+                object-fit: cover;
+            } 
+        }
+        &__photo3 {
+            @include box(100%,358px); 
+            background-image: url(../../assets/alexey.png);
+            @media screen and (max-width: 1236px) {
+                background-repeat: no-repeat;
+                object-fit: cover;
+            } 
+        }
+        &__info {
+           width: 233px;
+           margin: -81px auto 0 auto;
+           padding: 22px 0 0 0;
+           background-color: $white;
+           box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
+        }
+        &__name {
+            margin-bottom:  9px;
+            @include font(18px,$yesevaOne,$cod_gray); 
+            text-align: center;
+            font-weight: 100;
+        }
+        &__post {
+            margin-bottom: 24px;
+            @include font(18px,$futuraBookC,$dustyGray); 
+            text-align: center;
+        }
+        &__work-experince{
+            @include box(100%,44px);
+            margin: 0 auto;
+            padding-top: 15px;
+            background-color: $harvest-gold;
+            &__text {
+                @include font(13px,$yesevaOne,$white); 
+                text-align: center;
+                font-weight: 100;
+                text-transform: uppercase;
+            }
+        }
+    }
+    &__bottom-line {
+        @include box(55px,2px);
+        margin: 0 auto 15px auto;
+        @media screen and (max-width: 1236px) {
+            display: none;
+        } 
+    }
+    &__bottom-text {
+        margin: 0;
+        @include font(20px,$futuraBookC,$mineShaft); 
+        text-align: center;
+        @media screen and (max-width: 1236px) {
+            display: none;
+        } 
+    }
+}
+
+.our-clients {
+    width: 100%;
+    &__container {
+        @include box(1440px,1000px); 
+        margin: 0 auto;
+        padding: 0;
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 1236px) {
+            height: 2048px;
+            padding-top: 50px;
+        }
+        @media screen and (max-width: 536px) {
+            height: 575px;
+            padding-top: 76px;
+            background-color: $cod_gray;
+        }
+    }
+    &__heading {
+        @include font(20px,$yesevaOne,$cod_gray); 
+        margin-bottom: 14px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 100;
+        @media screen and (max-width: 536px) {
+            display: none;
+        }
+    }
+    &__images {
+        width: 120px;
+        margin: 0 auto 24px auto;
+        @media screen and (max-width: 536px) {
+            display: none;
+        }
+    }
+    &__top-line {
+        margin-bottom: 12px;
+    }
+    &__team {
+        margin: 0 7px;
+    }
+    &__top-text {
+        margin-bottom: 50px;
+        @include font(20px,$futuraBookC,$mineShaft); 
+        text-align: center;
+        @media screen and (max-width: 536px) {
+            display: none;
+        }
+    }
+    &__clients {
+        display: flex;
+        justify-content: space-between;
+        width: 1236px;
+        margin: 0 auto 158px auto;
+        @media screen and (max-width: 1384px) {
+            width: 1200px;
+        }
+        @media screen and (max-width: 1236px) {
+            display: block;
+            width: 376px;
+        }
+        @media screen and (max-width: 536px) {
+            display: none;
+        }
+    }
+    &__client {
+        @include box(376px,428px); 
+        padding: 24px 32px 0 20px; 
+        background-color: $white;
+        box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.04);
+        @media screen and (max-width: 1236px) {
+            margin-bottom: 70px;
+        }
+        &__profile {
+            display: flex;
+            width: 100%;
+            margin-bottom: 22px;
+        }
+        &__photo {
+            @include box(76px,76px); 
+            margin-right: 23px;
+            border-radius: 100%;
+        }
+        &__name {
+            margin-top: 14px;
+            @include font(18px,$yesevaOne,$cod_gray); 
+            font-weight: 100;
+        }
+        &__review {
+            margin-bottom: 68px;
+            @include font(15px,$futuraBookC,$dustyGray); 
+            line-height: 180%;
+        }
+        &__order-list {
+            @include box(294px,54px,flex); 
+            margin-left: -19px;
+            background-color: $harvest-gold;
+            list-style: none;
+            box-shadow: 5px 5px 20px rgba(227, 184, 115, 0.5);
+        }
+        &__order-item {
+            display: flex;
+            height: 100%;
+            padding: 3px 0 0 17px;
+            &:first-child {
+                width: 136px;
+                border-right: 1px solid $white;
+            }
+            &:nth-child(2) {
+                width: 158px;
+            }
+        }
+        &__order-img {
+            margin-right: 14px;
+        }
+        &__order-text {
+            margin-top: 14px;
+            @include font(17px,$yesevaOne,$white); 
+            font-weight: 100;
+            text-transform: uppercase;
+        }
+    }
+    &__question-request  {
+        position: relative;
+        @include box(883px,445px); 
+        margin: 0 auto;
+        padding-top: 35px;
+        background-color: $cod_gray;
+        opacity: 3;
+        @media screen and (max-width: 1080px) {
+            width: 600px;
+        }
+        @media screen and (max-width: 660px) {
+            width: 350px;
+            height: 533px;
+        }
+        @media screen and (max-width: 536px) {
+            padding: 0;
+            height: 100%;
+        }
+        &__checkbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media screen and(max-width: 850px) {
+                justify-content: flex-start;
+            }
+            #agree {
+                display: none;
+            }
+            &-agree-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 18px;
+            height: 18px;
+            border: 1px solid $harvest-gold;
+            cursor: pointer;
+                svg {
+                    color: black;
+                }
+            }
+            #agree:checked ~ &-agree-box {
+                background-color: $harvest-gold;
+            }
+            &-agree {
+            cursor: pointer;
+                p {
+                    padding-left: 8px;
+                    @include font(16px,$futuraBookC,$white);
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+        }
+        &__heading {
+            margin-bottom: 42px;
+            text-align: center;
+            @include font(20px,$yesevaOne,$white);
+            font-weight: 100;
+            text-transform: uppercase;
+            @media screen and (max-width: 660px) {
+                margin-bottom: 52px;
+            }
+        }
+        &__personal-data-form {
+            width: 520px;
+            margin: 0 auto;
+            @media screen and (max-width: 660px) {
+                width: 340px;
+            }
+        }
+        &__personal-data {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 46px;
+            @media screen and (max-width: 660px) {
+                display: block;
+                margin-bottom: 21px;
+            }
+        }
+        &__input-block {
+            @include box(231px,47px,flex); 
+            margin-bottom: 48px;
+            border-bottom: 1px solid rgba($color:$white, $alpha: 0.15);
+            @media screen and (max-width: 660px) {
+                width: 100%;
+                margin-bottom: 63px;
+            }
+            &:nth-child(3) {
+                width: 100%;
+                margin: 0;
+            }
+            & p {
+                @include font(18px,$futuraBookC,$white);
+                margin-right: 3px;
+            }
+            & span {
+                @include font(15px,$futuraBookC,rgba($color:$white, $alpha: 0.5));
+            }
+            &__input {
+                @include box(87px,22px);
+                margin-top: 21px;
+                padding-left: 5px;
+                background-color: $cod_gray;
+                color: $white;
+                border: 0;
+                @media screen and (max-width: 660px) {
+                    width: 189px;
+                }
+            }
+            &__input-big {
+                @include box(410px,22px);
+                margin-top: 21px;
+                padding-left: 5px;
+                background-color: $cod_gray;
+                color: $white;
+                border: 0;
+                @media screen and (max-width: 660px) {
+                    width: 222px;
+                }
+            }
+        }
+        &__checkbox {
+            @include box(286px,18px,flex);
+            margin: 0 auto 50px auto; 
+            @media screen and (max-width: 660px) {
+                margin: 0 0 66px 0;
+            }
+            &__check {
+                @include box(18px,18px); 
+                margin:1px 8px 0 0;
+            }
+            &__name {
+                @include font(16px,$futuraBookC,$white);
+            }
+        }
+        
+        &__personal-data-button {
+            @include box(200px,51px);
+            margin: 0 auto;
+            background-color: $harvest-gold;
+            @include font(15px,$futuraAdemic,$white);
+            border: 0;
+            cursor: pointer;
+            @media screen and (max-width: 660px) {
+                @include box(100%,51px);
+            }
+        }
+    }
+}
+
+.address {
+    width: 100%;
+    background-color: $cod_gray;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 1440px;
+        margin: 0 auto;
+        padding: 275px 0 66px 0; 
+        background: linear-gradient(180deg, rgba(24, 24, 24, 0.9) 3.47%, rgba(24, 24, 24, 0.72) 100%) , url(../../assets/buildingImg.png);
+        @media screen and (max-width: 1440px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 660px) {
+            padding: 350px 0 38px 0; 
+            background: $cod_gray;
+        }
+        @media screen and (max-width: 536px) {
+            padding: 46px 0 38px 0; 
+        }
+    }
+    &__contacts {
+        width: 589px;
+        margin: 0 auto;
+        margin-bottom: 43px;
+        @media screen and (max-width: 660px) {
+            width: 340px;
+            margin-bottom: 0;
+        }
+    }
+    &__text {
+        margin-bottom: 26px;
+        text-align: center;
+        @include font(20px,$yesevaOne,$harvest-gold);
+        text-transform: uppercase;
+        font-weight: 100;
+        line-height: 138.6%;
+        @media screen and (max-width: 660px) {
+            font-size: 18px;
+        }
+        &__tel {
+            text-decoration: none;
+            color: $harvest-gold;
+        }
+    }
+    &__icons {
+        display: flex;
+        justify-content: space-between;
+        width: 71px;
+        margin: 0 auto;
+        @media screen and (max-width: 660px) {
+            width: 99px;
+        }
+    }
+    &__icon {
+        @include box(28px,28px);
+        padding-top: 8px;
+        background-color: rgba($color: $harvest-gold, $alpha: 0.7);
+        border-radius: 100%;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba($color: $harvest-gold, $alpha: 1);
+        }
+        @media screen and (max-width: 660px) {
+            @include box(39px,39px);
+            padding-top: 11px;
+        }
+        &__img1 {
+            @include box(14px,11px);
+            margin: 0 auto;
+            @media screen and (max-width: 660px) {
+                @include box(20px,16px);
+            }
+        }
+        &__img2 {
+            @include box(12px,12px);
+            margin: 0 auto;
+            @media screen and (max-width: 660px) {
+                @include box(17px,17px);
+            }
+        }
+    }
+    &__map {
+        @include box(925px,465px);
+        object-fit: cover;
+        @media screen and (max-width: 1080px) {
+            width: 600px;
+            height: 301px;
+        }
+        @media screen and (max-width: 660px) {
+            order: -1;
+            width: 340px;
+            height: 255px;
+            margin-bottom: 42px;
+        }
+    }
+}
+
+.footer {
+    @include box(100%,133px,$cod_gray);
+    background-color: $cod_gray;
+    @media screen and (max-width: 660px) {
+       display: none;
+    }
+    &__container {
+        @include box(1440px,100%,flex);
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 48px 92px 0 92px;
+        @media screen and (max-width: 1440px) {
+            @include box(100%,100%,flex);
+        }
+        @media screen and (max-width: 780px) {
+            justify-content: space-between;
+            width: 100%;
+            padding: 23px 18px 0 18px;
+        }
+    }
+    &__heading {
+        margin: 13px 0px 0 0;
+        @include font(14px,$futuraAdemic,$harvest-gold);
+        line-height: 10px;
+        text-transform: uppercase;
+        @media screen and (max-width: 1190px) {
+            font-size: 12px;
+        }
+    }
+    &__nav-menu {
+        display: flex;
+        width: 54%;
+        justify-content: space-between;
+        margin: 8px 0 0 0;
+        padding-right: 29px;
+        padding: 0 29px 0 50px;
+        list-style: none;
+        
+        @media screen and (max-width: 1190px) {
+            padding: 0;
+        }
+        &__item{
+            &:last-child {
+                margin-right: 0px; 
+            }
+        }
+        &__link {
+            text-decoration: none;
+            @include font(14px,$futuraBookC,$white);
+            &:hover{
+                color: $harvest-gold;
+            }
+            @media screen and (max-width: 1190px) {
+                font-size: 12px;
+            }
+        }
+    }
+    &__tel {
+        height: 16px;
+        margin: 9px 0px 0 0;
+        padding-bottom: 0px;
+        @include font(14px,$futuraAdemic,$harvest-gold);
+        text-decoration: none;
+        border-bottom: 1px solid $harvest-gold;
+        @media screen and (max-width: 1190px) {
+            font-size: 12px;
+        }
+    }
+    &__button {
+        @include box(161px,37px);
+        background-color: $harvest-gold;
+        @include font(13px,$futuraAdemic,$white);
+        text-transform: uppercase;
+        border: 0;
+        cursor: pointer;
+        @media screen and (max-width: 1190px) {
+            display: none;
+        }
+    }
+}

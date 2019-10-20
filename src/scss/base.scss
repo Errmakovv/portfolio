@@ -1,0 +1,481 @@
+$cod_gray: #131313;
+$brightTurquoise: #08FDD8;
+$white: #ffffff;
+$futuraBookC: "FuturaBookC";
+$futuraAdemic: "Futura Ademic";
+$yesevaOne: 'Yeseva One';
+
+@mixin font($size,$family,$color) {
+    font-size: $size;
+    font-family: $family;
+    color: $color;
+}
+
+@mixin box($width,$height,$display: block) {
+    display: $display;
+    width: $width;
+    height: $height;
+}
+
+@font-face {
+    font-family: $futuraBookC;
+    font-style: normal;
+    font-weight: 400;
+    src:  url(../../assets/fonts/futurabookc.otf)
+}
+
+@font-face {
+    font-family: $futuraAdemic;
+    font-style: normal;
+    font-weight: 400;
+    src:  url(../../assets/fonts/futurademic.otf)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    @include box( 100%, 70px);
+    padding: 15px 0 0 100px;
+    background-color: $cod_gray;
+    @media screen and (max-width: 550px) {
+        padding: 15px 0 0 0;
+    }
+    &__headline {
+        @include font(30px, $futuraAdemic, $brightTurquoise);
+        @media screen and (max-width: 550px) {
+           text-align: center;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(24, 24, 24, 0.85) 3.47%, rgba(24, 24, 24, 0.85) 100%), url(../../assets/5b4d43f5c58ce_thumb900.jpg);
+    box-shadow: inset 0px 9px 12px -8px $brightTurquoise;
+    &__container {
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 90px;
+        @media screen and (max-width: 1000px) {
+           width: 100%;
+        }
+    }
+}
+
+.profile {
+    display: flex;
+    width: 100%;
+    padding: 0 0 70px 100px;
+    @media screen and (max-width: 817px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0 70px 0;
+    }
+    &__photo {
+        @include box( 300px, 300px);
+        margin-right: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+        @media screen and (max-width: 817px) {
+            @include box( 55vw, 55vw);
+            margin-right: 0;
+        }
+    }
+    &__text {
+        padding-top: 35px;
+    }
+    &__name {
+        margin-bottom: 60px;
+        @include font(42px, $futuraAdemic, $white);
+        @media screen and (max-width: 817px) {
+            margin-bottom: 6vw;
+            font-size: 6vw;
+        }
+    }
+    &__contacts {
+        list-style: none;
+    }
+    &__contact {
+        width: 118px;
+        margin-bottom: 15px;
+        text-align: center;
+        &:last-child {
+            margin: 0;
+            @media screen and (max-width: 817px) {
+                margin: 0 auto;
+            }
+        }
+        &:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transform: scale(1.3);
+        }
+        @media screen and (max-width: 817px) {
+            margin: 0 auto;
+            width: 125px;
+            margin-bottom: 1.5vw;
+        }
+        &__link {
+            @include font(26px, $futuraAdemic, $brightTurquoise);
+            text-decoration: none;
+            @media screen and (max-width: 817px) {
+               font-size: 4vw;
+            }
+        }
+    }
+}
+
+.education {
+    width: 100%;
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 30px 10px 37px;
+        border-top: 2px solid $brightTurquoise;
+        border-bottom: 1px solid $brightTurquoise;
+        &__text {
+            @include font(34px, $futuraAdemic, $white);
+            @media screen and (max-width: 817px) {
+                font-size: 4vw;
+            }
+        }
+        &__arrow {
+            @include box( 25px, 25px);
+            margin-top: 10px;
+            transform: rotate(-90deg);
+            cursor: pointer;
+            @media screen and (max-width: 817px) {
+                @include box( 25px, 25px);
+                margin-top: 0;
+            }
+        }
+    }
+    &__list {
+        padding: 50px 0 70px 37px;
+        border-bottom: 2px solid $brightTurquoise;
+        list-style-type: none;
+        @media screen and (max-width: 817px) {
+            padding: 5vw 0 7vw 3.7vw;
+        }
+    }
+    &__item {
+        margin-bottom: 40px;
+        @media screen and (max-width: 817px) {
+            margin-bottom: 15px;
+        }
+        &:last-child {
+            margin: 0;
+        }
+        &__place {
+            @include font(30px, $futuraAdemic, $white);
+            margin-bottom: 7px;
+            @media screen and (max-width: 817px) {
+                font-size: 4.5vw;
+            }
+        }
+        &__years {
+            @include font(24px, $futuraAdemic, $brightTurquoise);
+            @media screen and (max-width: 817px) {
+                font-size: 3.2vw;
+            }
+        }
+    }
+}
+
+.projects {
+    width: 100%;
+    padding-bottom: 100px;
+    @media screen and (max-width: 817px) {
+        padding-bottom: 10vw;
+    }
+    @media screen and (max-width: 550px) {
+        padding: 0;
+    }
+    &__heading {
+        width: 100%;
+        padding: 10px 30px 10px 37px;
+        border-bottom: 1px solid $brightTurquoise;
+        &__text {
+            @include font(34px, $futuraAdemic, $white);
+            @media screen and (max-width: 817px) {
+                font-size: 4vw;
+            }
+        }
+    }
+    &__slider {
+        position: relative;
+        @include box( 100%, 450px);
+        overflow: hidden;
+        @media screen and (max-width: 1000px) {
+            @include box( 100vw, 45vw);
+        }
+        @media screen and (max-width: 817px) {
+            height: 55vw;
+        }
+        @media screen and (max-width: 550px) {
+            height: auto;
+        }
+    }
+    &__control-left {
+        position: absolute;
+        top: 45%;
+        left: 15px;
+        @include box( 45px, 45px);
+        padding: 13px 0 0 13px;
+        background-color: rgba($color: $brightTurquoise, $alpha: 0.5) ;
+        border-radius: 100%;
+        cursor: pointer;
+        z-index: 2;
+        &:hover {
+            background-color: $brightTurquoise;
+        }
+        @media screen and (max-width: 550px) {
+           display: none;
+        }
+        &__img {
+            @include box( 14px, 18px);
+        }
+    }
+    &__control-right{
+        position: absolute;
+        top: 45%;
+        right: 15px;
+        @include box( 45px, 45px);
+        padding: 13px 0 0 18px;
+        background-color: rgba($color: $brightTurquoise, $alpha: 0.5) ;
+        border-radius: 100%;
+        cursor: pointer;
+        z-index: 2;
+        @media screen and (max-width: 550px) {
+            display: none;
+        }
+        &:hover {
+            background-color: $brightTurquoise;
+        }
+        &__img {
+            @include box( 14px, 18px); 
+            transform: rotate(180deg);
+        }
+    }
+    &__content {
+        position: relative;
+        @include box( 100%, 100%,flex);
+        flex-wrap: nowrap;
+        @media screen and (max-width: 550px) {
+            height: auto;
+        }
+    }
+    &__slide {
+        position: relative;
+        @include box( 100%, 100%,none); 
+        background-color: #3a3838;
+        animation: 0.5s ease-in-out;
+        @media screen and (max-width: 550px) {
+            padding-bottom: 3vw;
+        }
+        &__description {
+            @include box( 670px, 100%);
+            padding: 35px 0 0 90px;
+            @media screen and (max-width: 1000px) {
+                width: 67vw;
+                padding: 3vw 0 0 15vw;
+            }
+            @media screen and (max-width: 550px) {
+                width: 100vw;
+                height: auto;
+                padding: 2.5vw 0 0 0;
+                margin-bottom: 20px;
+            }
+        }
+        
+        &__heading {
+            display: none;
+            justify-content: space-between;
+            margin-bottom: 35px; 
+            @media screen and (max-width: 1000px) {
+                margin-bottom: 3.5vw;
+            }
+            @media screen and (max-width: 550px) {
+                display: flex;
+                padding: 0 4vw 0 12vw;
+            }
+        }
+        &__show-hide-desc{
+            @include font(6vw, $futuraAdemic, $white);
+        }
+        &__arrow-top {
+            cursor: pointer;
+            @media screen and (max-width: 550px) {
+                @include box( 20px, 30px);
+                margin-top: 2vw;
+                transform: rotate(180deg);
+            }
+        }
+        &__name {
+            @include font(56px, $futuraAdemic, $white);
+            margin-bottom: 3vw;
+            @media screen and (max-width: 1000px) {
+                font-size: 5vw;
+            }
+            @media screen and (max-width: 817px) {
+                font-size: 8vw;
+            }
+        }
+        &__list {
+            padding-left: 51px;
+            margin-bottom: 50px;
+            list-style-type: none;
+            @media screen and (max-width: 1000px) {
+                padding-left: 5vw;
+                margin-bottom: 5vw;
+            }
+            @media screen and (max-width: 817px) {
+                margin-bottom: 3.5vw;
+            }
+            @media screen and (max-width: 550px) {
+                margin: 0 0 0 20vw;
+                display: none;
+            }
+        }
+        &__item {
+            @include font(30px, $futuraAdemic, $brightTurquoise);
+            @media screen and (max-width: 1000px) {
+               font-size: 3vw;
+            }
+            @media screen and (max-width: 817px) {
+                font-size: 4vw;
+            }
+            @media screen and (max-width: 550px) {
+                font-size: 24px;
+            }
+        }
+        &__help {
+            @include box( 500px, 120px,flex);
+            justify-content: space-between;
+            padding: 20px 20px 0 30px;
+            border: 1px solid $brightTurquoise;
+            border-radius: 5px;
+            @media screen and (max-width: 1000px) {
+                width: 50vw;
+                height: 12vw;
+                padding: 2vw 2vw 0 3vw;
+            }
+            @media screen and (max-width: 817px) {
+                width: 50vw;
+                height: 12vw;
+                padding: 1vw 2vw 0 3vw;
+            }
+            @media screen and (max-width: 550px) {
+                display: none;
+            }
+        }
+        &__text {
+            width: 300px;
+            margin-right: 30px;
+            @include font(30px, $futuraAdemic, $brightTurquoise);
+            @media screen and (max-width: 1000px) {
+                width: 30vw;
+                margin-right: 3vw;
+                font-size: 3vw;
+            }
+            @media screen and (max-width: 817px) {
+                font-size: 4vw;
+            }
+        }
+        &__arrow {
+            @include box( 50px, 50px);
+            margin-top: 14px;
+            transform: rotate(180deg);
+            @media screen and (max-width: 1000px) {
+                @include box( 5vw, 5vw);
+                margin-top: 1.4vw;
+            }
+        }
+        &__photo-link {
+            @include box( 330px, 100%);
+            @media screen and (max-width: 1000px) {
+                width: 33vw;
+            }
+            @media screen and (max-width: 550px) {
+                width: 50vw;
+                height: 250px;
+                margin: 0 auto 15px auto;
+            }
+        }
+        &__photo {
+            @include box( 100%, 100%);
+            object-position: top;
+        }
+        &__swipe-text {
+            display: none;
+            @include font(24px, $futuraAdemic, $brightTurquoise);
+            text-align: center;
+            @media screen and (max-width: 550px) {
+                display: block;
+            }
+        }
+    }
+    
+}
+
+
+.swiper-container {
+    @include box( 100%, 450px);
+    @media screen and (max-width: 1000px) {
+        @include box( 100vw, 45vw);
+    }
+    @media screen and (max-width: 817px) {
+        height: 55vw;
+    }
+    @media screen and (max-width: 550px) {
+        height: auto;
+    }
+}
+
+.swiper-wrapper {
+    @include box( 100%, 100%,flex);
+    flex-wrap: nowrap;
+    @media screen and (max-width: 550px) {
+        height: auto;
+    }
+}
+
+.swiper-slide {
+    position: relative;
+    @include box( 100%, 100%,flex); 
+    background-color: #3a3838;
+    animation: 0.5s ease-in-out;
+    @media screen and (max-width: 550px) {
+        padding-bottom: 3vw;
+        display: block;
+    }
+}
+
+.arrow-prev {
+    color: $brightTurquoise;
+    @media screen and (max-width: 550px) {
+        display: none;
+    }
+}
+
+.arrow-next {
+    color: $brightTurquoise;
+    @media screen and (max-width: 550px) {
+        display: none;
+    }
+}
+
+.down {
+    transform: rotate(-90deg);
+}
+
+.visible {
+    display: block;
+}
+
